@@ -1,0 +1,262 @@
+.robot-container:hover *,
+.robot-container:hover *::before,
+.robot-container:hover *::after,
+.robot-container:hover .robot-face-shape *,
+.robot-container:hover .robot-face-shape *::before,
+.robot-container:hover .robot-face-shape *::after {
+  animation-play-state: paused;
+}
+
+.robot-container:hover .robot-face-shape {
+  background-color: rgb(187, 164, 164);
+}
+
+.robot-eye-left,
+.robot-eye-right {
+  animation: heat 5s 1s infinite;
+}
+
+.robot-eye-left::after,
+.robot-eye-right::after {
+  width: 120px;
+  height: 50px;
+  background-color: silver;
+  border-bottom: 2px solid black;
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -10px;
+  transition: all 1s ease-in;
+  animation: blink 5s 2s infinite;
+  transform: scaleY(1);
+}
+
+.robot-container:hover .robot-eye-left::after,
+.robot-container:hover .robot-eye-right::after {
+  opacity: 0;
+}
+
+.robot-eye-left::before,
+.robot-eye-right::before {
+  animation: glance 5s infinite;
+  transition: all 1s ease;
+}
+
+.robot-container:hover .robot-eye-left::before,
+.robot-container:hover .robot-eye-right::before {
+  transform: scale(1.5);
+}
+
+.robot-ear-left {
+  animation: left-ear 5s 1s infinite;
+}
+
+.robot-ear-left::after {
+  animation: earring 5s 1s infinite linear;
+}
+
+.robot-ear-right {
+  animation: right-ear 5s 1s infinite;
+}
+
+.robot-nose {
+  animation: sniff 5s 1s infinite;
+}
+
+.robot-nose::before,
+.robot-nose::after {
+  animation: expand 5s 1s infinite, heat 5s 1s infinite;
+}
+
+.robot-teeth {
+  animation: heat 5s 1s infinite;
+}
+
+.robot-tooth {
+  animation: fire 5s 1s infinite linear;
+  transition: all 1s ease;
+}
+
+.robot-container:hover .robot-tooth {
+  transform: scaleX(0.5);
+}
+
+.robot-hair-style > * {
+  animation: hair 5s 1s infinite;
+}
+
+@keyframes blink {
+  20% {
+    transform: scaleY(1);
+  }
+  30% {
+    top: -50px;
+    transform: scaleY(0.5);
+  }
+  38%,
+  50% {
+    top: 0px;
+    transform: scaleY(3);
+  }
+  70% {
+    top: -50px;
+    transform: scaleY(0.9);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes glance {
+  10% {
+    left: 38px;
+  }
+  20% {
+    left: 3px;
+  }
+  40% {
+    left: 63px;
+  }
+  55% {
+    left: 33px;
+  }
+  60% {
+    left: 35px;
+  }
+}
+
+@keyframes left-ear {
+  20% {
+    transform: rotate(10deg);
+  }
+  40%,
+  50% {
+    transform: rotate(20deg);
+  }
+  70% {
+    transform: rotate(70deg) translateY(-40px);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes earring {
+  25% {
+    transform: rotate(35deg);
+  }
+  40%,
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(35deg);
+  }
+}
+
+@keyframes right-ear {
+  20% {
+    transform: rotate(-10deg);
+  }
+  40%,
+  50% {
+    transform: rotate(-20deg);
+  }
+  70% {
+    transform: rotate(-70deg) translateY(-40px);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes sniff {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-10px);
+  }
+  40%,
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  40%,
+  50% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes heat {
+  0% {
+    background: black;
+  }
+  20% {
+    background: rgb(30, 10, 1);
+  }
+  40%,
+  50% {
+    background: black;
+  }
+  70% {
+    background: rgb(50, 10, 1);
+  }
+  100% {
+    background: black;
+  }
+}
+
+@keyframes fire {
+  0% {
+    background-position-y: 0px;
+  }
+  20% {
+    background-position-y: -30px;
+  }
+  40%,
+  50% {
+    background-position-y: 0px;
+  }
+  70% {
+    background-position-y: -50px;
+  }
+  100% {
+    background-position-y: 0px;
+    /*background: #1a2a6c;
+        background: -webkit-linear-gradient(to top, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 
+        background: linear-gradient(to top, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
+@keyframes hair {
+  50% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(0deg) translate(50px, -10px) scaleY(0.9);
+  }
+}
